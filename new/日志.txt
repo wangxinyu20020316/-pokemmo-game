@@ -1,0 +1,2 @@
+2026/6/17 完善Trainer类战斗状态检测方法，Pokemon中个体类，Outside草丛类，battle判断先手权函数
+2026/6/18 完善battle模块（存在回合开始前，宝可梦血量回满的问题）,Type_table新增获取克制倍率函数
