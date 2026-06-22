@@ -110,6 +110,19 @@ class Pokemon_own:
 
     def name_print(self):
         return self.dex.CN_name
+
+    
+
+    #野生宝可梦个体随机生成
+    def random_create(self,min_level,max_level,iv_min=0,iv_max=31):
+        hp=random.randint(iv_min,iv_max)
+        at=random.randint(iv_min,iv_max)
+        de=random.randint(iv_min,iv_max)
+        st=random.randint(iv_min,iv_max)
+        sd=random.randint(iv_min,iv_max)
+        speed=random.randint(iv_min,self.iv_max)
+        level=random.randint(min_level,max_level)
+        return Pokemon_own(self.dex,hp,at,de,st,sd,speed,level)
         
         
 
@@ -138,27 +151,44 @@ class Pokemon_own:
 
 
 
-class Pokemon_wild(Pokemon_own):
-    #宝可梦个体随机器
-    def __init__(self,dex:Pokemon_Dex,min_level,max_level,iv_min=0,iv_max=31):
-        self.dex=dex
-        self.min_level=min_level
-        self.max_level=max_level
-        self.iv_min=iv_min
-        self.iv_max=iv_max
 
-    def random_pokemon(self):
-        hp=random.randint(self.iv_min,self.iv_max)
-        at=random.randint(self.iv_min,self.iv_max)
-        de=random.randint(self.iv_min,self.iv_max)
-        st=random.randint(self.iv_min,self.iv_max)
-        sd=random.randint(self.iv_min,self.iv_max)
-        speed=random.randint(self.iv_min,self.iv_max)
-        level=random.randint(self.min_level,self.max_level)
-        return Pokemon_own(self.dex,hp,at,de,st,sd,speed,level)
 
-    def __str__(self):
-        return f"{self.dex}出现了,hp为{self.hp},攻击为{self.at},防御为{self.de},特攻为{self.st},特防为{self.sd},速度为{self.speed}"
+
+##
+##class Pokemon_bag:
+##    def __init__(self,pokemon_own):
+##        self.hp=pokemon_own.hp_own
+##        self.attack=pokemon_own.at_own
+##        self.defense=pokemon_own.de_own
+##        self.special_attack=pokemon_own.st_own
+##        self.special_defense=pokemon_own.sd_own
+##        self.speed=pokemon_own.speed
+##        
+##        #属性数据
+##        self.type_1=(pokemon_own.dex).Type_1
+##        self.type_2=(pokemon_own.dex).Type_2
+
+
+
+
+##class PokemonBattleTemp:
+##    #新建宝可梦战斗临时类，用于记录战斗所需的6项数据+属性数据，方便6项数据的增幅计算
+##    def __init__(self,pokemon_own):
+##        #6项基础数据
+##        self.hp=pokemon_own.hp_own
+##        self.attack=pokemon_own.at_own
+##        self.defense=pokemon_own.de_own
+##        self.special_attack=pokemon_own.st_own
+##        self.special_defense=pokemon_own.sd_own
+##        self.speed=pokemon_own.speed
+##        
+##        #属性数据
+##        self.type_1=(pokemon_own.dex).Type_1
+##        self.type_2=(pokemon_own.dex).Type_2
+##
+##        #宝可梦原数据(方便拿技能)
+##        self.pokemon_resource=pokemon_own
+
         
 
         
